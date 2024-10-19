@@ -1,2 +1,1 @@
-# wise-chord.github.io
-Wise Chord's bolg
+# wise-chord.github.io\

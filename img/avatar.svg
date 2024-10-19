@@ -1,0 +1,15 @@
+<svg width="1080" height="1080" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- background -->
+    <rect x="0" y="0" width="1079" height="540" fill="white" />
+    <rect x="0" y="540" width="1079" height="1079" fill="black" />
+
+    <!-- the character in the top half -->
+    <circle cx="540" cy="270" r="80" fill="black" />
+    <polygon points="490,320 590,320 644,540 436,540" fill="black" />
+
+    <!-- the character in the lower half -->
+    <circle cx="540" cy="810" r="80" fill="white" />
+    <polygon points="490,760 590,760 644,540 436,540" fill="white" />
+
+</svg>

@@ -1,0 +1,100 @@
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8F9FA;
+    color: #343A40;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* 导航栏样式 */
+.navbar {
+    background-color: #343A40;
+    padding: 1rem;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar a {
+    color: #F8F9FA;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #FFC107;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #007BFF;
+    color: #F8F9FA;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 布局样式 */
+header {
+    text-align: center;
+    background-color: #007BFF;
+    color: #F8F9FA;
+    padding: 2rem 0;
+}
+
+header .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+main {
+    padding: 2rem;
+    background-color: #F8F9FA;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    border-bottom: 2px solid #343A40;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    background-color: #343A40;
+    color: #F8F9FA;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
