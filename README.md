@@ -1,2 +1,2 @@
 # wise-chord.github.io
-hexo-blog
+Wise Chord's bolg

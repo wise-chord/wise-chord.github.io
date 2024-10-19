@@ -1,0 +1,82 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            padding: 1em;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .language-switcher {
+            margin: 1em;
+            text-align: center;
+        }
+        .language-switcher button {
+            margin: 0 5px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('zh')">中文</button>
+    </div>
+    <header>
+        <h1 id="header-title">Welcome to My Blog</h1>
+    </header>
+    <main>
+        <p id="main-content">This is my first blog post. Stay tuned for more content!</p>
+    </main>
+    <footer>
+        <p id="footer-text">&copy; 2024 My Personal Blog</p>
+    </footer>
+
+    <script>
+        const languages = {
+            en: {
+                headerTitle: "Welcome to My Blog",
+                mainContent: "This is my first blog post. Stay tuned for more content!",
+                footerText: "&copy; 2024 My Personal Blog"
+            },
+            zh: {
+                headerTitle: "欢迎来到我的博客",
+                mainContent: "这是我的第一篇博客文章。敬请期待更多内容！",
+                footerText: "&copy; 2024 我的个人博客"
+            }
+        };
+
+        function setLanguage(language) {
+            document.getElementById('header-title').innerHTML = languages[language].headerTitle;
+            document.getElementById('main-content').innerHTML = languages[language].mainContent;
+            document.getElementById('footer-text').innerHTML = languages[language].footerText;
+        }
+
+        // 设置默认语言
+        setLanguage('en');
+    </script>
+</body>
+</html>
