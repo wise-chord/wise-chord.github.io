@@ -1,6 +1,8 @@
 {
     "language": "language",
-    "theme": "",
+    "theme": "theme",
+    "lightMode": "light",
+    "darkMode": "dark",
     "headerTitle": "Welcome to My Blog",
     "mainContent": "This is my first blog post. Stay tuned for more content!",
     "home": "Home",

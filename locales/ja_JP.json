@@ -1,5 +1,8 @@
 {
     "language": "言語",
+    "theme": "テーマ",
+    "lightMode": "明るい",
+    "darkMode": "暗い",
     "headerTitle": "私のブログへようこそ",
     "mainContent": "これは私の最初のブログ記事です。今後のコンテンツをお楽しみに！",
     "home": "ホーム",
