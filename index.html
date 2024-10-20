@@ -14,28 +14,39 @@
 </head>
 
 <body>
-    <nav class="nav-bar">
+    <nav class="navbar">
         <ul>
-            <li><a href="#home" data-i18n="home">Home</a></li>
-            <li><a href="#about" data-i18n="about">About</a></li>
-            <li><a href="#blog" data-i18n="blog">Blog</a></li>
-            <li><a href="#contact" data-i18n="contact">Contact</a></li>
+            <li><a href="#home" data-i18n="home"></a></li>
+            <li><a href="#about" data-i18n="about"></a></li>
+            <li><a href="#blog" data-i18n="blog"></a></li>
+            <li><a href="#contact" data-i18n="contact"></a></li>
         </ul>
+
         <div class="language-switcher">
-            <button onclick="setLanguage('en_GB')">English</button>
-            <button onclick="setLanguage('zh_CN')">中文 (简体)</button>
-            <button onclick="setLanguage('zh_TW')">中文 (繁體)</button>
-            <button onclick="setLanguage('ja_JP')">日本語</button>
+            
+            <!-- change languages -->
+            <button class="dropdown-button" data-i18n="language"></button>
+            <div class="dropdown-content">
+                <a href="#" onclick="setLanguage('en_GB')">English</a>
+                <a href="#" onclick="setLanguage('zh_CN')">简体中文</a>
+                <a href="#" onclick="setLanguage('zh_TW')">繁體中文</a>
+                <a href="#" onclick="setLanguage('ja_JP')">日本語</a>
+            </div>
+            
+            <!-- light and dark mode -->
+            <a id="theme" href="#" onclick="setTheme()" data-i18n="theme"></a>
+            
         </div>
+
     </nav>
     <header>
         <img src="img/avatar.svg" alt="Avatar" class="avatar">
-        <h1 id="header-title" data-i18n="headerTitle">Welcome to My Blog</h1>
+        <h1 id="header-title" data-i18n="headerTitle"></h1>
     </header>
     <main>
         <section id="home">
             <h2>Home</h2>
-            <p id="main-content" data-i18n="mainContent">This is my first blog post. Stay tuned for more content!</p>
+            <p id="main-content" data-i18n="mainContent"></p>
         </section>
         <section id="about">
             <h2>About</h2>
@@ -47,12 +58,9 @@
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>This is the contact section.</p>
+            <p><a href="www.bing.com">bing</a></p>
         </section>
     </main>
-    <!-- <footer>
-        <p id="footer-text" data-i18n="footerText">&copy; 2024 My Personal Blog</p>
-    </footer> -->
 
 </body>
 
