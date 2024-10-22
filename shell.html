@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/shell.css">
+    <script src="js/i18n/i18next.min.js"></script>
+    <script src="js/i18n/i18nextXHRBackend.min.js"></script>
+    <script src="js/modules/language.js"></script>
+    <script src="js/modules/theme.js"></script>
+    <script src="js/shell.js"></script>
+</head>
+
+<body onload="init();">
+
+    <style>
+
+    </style>
+    <div class="shell animation print">
+
+        <style>
+            .avatar {
+                border-radius: 50%;
+                width: 10vw;
+                height: 10vw;
+                border-style: solid;
+                border-width: 0.8vw;
+                border-color: var(--md-sys-color-inverse-primary);
+            }
+        </style>
+        <div class="animation wrap">
+            <img src="img/avatar.svg" alt="Avatar" class="avatar animation print" />
+        </div>
+        <div class="animation wrap">
+            <span class="animation">Wise_Chord@outlook.com</span>
+        </div>
+
+        <div class="dividing-line"></div>
+
+        <div class="menu animation wrap">
+
+            <div class="search-bar animation">
+                <img id="searchIcon" alt="SearchIcon" class="icon animation print" src="img/searchIcon.svg" />
+                <!-- placeholder should implemented using i18n -->
+                <input type="text" class="global-search animation" placeholder="search...">
+            </div>
+
+            <div class="menu dropdown-button animation">
+
+                <ul class="shell-links animation">
+
+                    <li class="shell-link animation">
+                        <img src="img/homePage.svg" alt="" class=" animation icon" />
+                        <a href="" class=" animation">
+                            <!-- <span>tmp</span> -->
+                        </a>
+                    </li>
+
+                    <li class="shell-link animation">
+                        <img src="img/homePage.svg" alt="" class=" animation icon" />
+                        <a href="" class=" animation">
+                            <!-- <span>tmp</span> -->
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="switcher animation">
+            <div class="dropdown-button animation" data-i18n="language"></div>
+            <div class="dropdown-content animation">
+                <a href="#" onclick="setLanguage('en_GB')" class=" animation print">English</a>
+                <a href="#" onclick="setLanguage('zh_CN')" class=" animation print">简体中文</a>
+                <a href="#" onclick="setLanguage('zh_TW')" class=" animation print">繁體中文</a>
+                <a href="#" onclick="setLanguage('ja_JP')" class=" animation print">日本語</a>
+            </div>
+        </div>
+
+        <div class="switcher animation print">
+            <div class="dropdown-button animation print" data-i18n="theme"></div>
+            <div class="dropdown-content animation">
+                <a href="#" onclick="setTheme('light')" class="print animation" data-i18n="lightMode"></a>
+                <a href="#" onclick="setTheme('dark')" class="print animation" data-i18n="darkMode"></a>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<svg
+    id="searchIcon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 64 64"
+    width="64"
+    height="64"
+    fill="none"
+    stroke="rgb(99 86 143)"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+>
+    <circle cx="24" cy="24" r="16" fill="none" />
+    <line x1="36" y1="36" x2="54" y2="54" />
+</svg>

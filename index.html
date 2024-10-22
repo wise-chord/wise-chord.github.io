@@ -1,63 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Blog</title>
-    <link rel="stylesheet" href="css/light.css">
-    <link rel="stylesheet" href="css/dark.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- i18n should be implemented by me -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.8.15/i18next.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/3.2.2/i18nextXHRBackend.min.js"></script> -->
     <script src="js/i18n/i18next.min.js"></script>
     <script src="js/i18n/i18nextXHRBackend.min.js"></script>
     <script src="js/modules/language.js"></script>
     <script src="js/modules/theme.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+    <title>Welcome to my mind</title>
 </head>
 
 <body onload="init();" class="print">
 
     <!-- navigation bar -->
-    <nav class="navbar print">
-        <ul class="print">
-            <li class="print"><a href="#home" class="print" data-i18n="home"></a></li>
-            <li class="print"><a href="#about" class="print" data-i18n="about"></a></li>
-            <li class="print"><a href="#blog" class="print" data-i18n="blog"></a></li>
-            <li class="print"><a href="#contact" class="print" data-i18n="contact"></a></li>
-        </ul>
-
-        <!-- change languages -->
-        <div class="switcher print">
-
-            <button class="dropdown-button print" data-i18n="language"></button>
-            <div class="dropdown-content print">
-                <a href="#" onclick="setLanguage('en_GB')" class="print">English</a>
-                <a href="#" onclick="setLanguage('zh_CN')" class="print">简体中文</a>
-                <a href="#" onclick="setLanguage('zh_TW')" class="print">繁體中文</a>
-                <a href="#" onclick="setLanguage('ja_JP')" class="print">日本語</a>
-            </div>
-
-        </div>
-
-        <!-- change theme -->
-        <div class="switcher print">
-
-            <button class="dropdown-button print" data-i18n="theme"></button>
-            <div class="dropdown-content print">
-                <a href="#" onclick="setTheme('light')" class="print" data-i18n="lightMode"></a>
-                <a href="#" onclick="setTheme('dark')" class="print" data-i18n="darkMode"></a>
-            </div>
-
-        </div>
-
-    </nav>
+    <iframe id="nav" src="shell.html" frameborder="0"></iframe>
+    
 
     <!-- main -->
-    <header class="print">
-        <img src="img/avatar.svg" alt="Avatar" class="avatar print">
-        <h1 id="header-title" class="print" data-i18n="headerTitle"></h1>
-    </header>
+
     <main class="print">
         <section class="print" id="home">
             <h2 class="print">Home</h2>
@@ -67,9 +33,9 @@
             <h2 class="print">About</h2>
             <p class="print">This is the about section.</p>
         </section>
-        <section id="blog">
-            <h2>Blog</h2>
-            <p>This is the blog section.</p>
+        <section class="print" id="blog">
+            <h2 class="print">Blog</h2>
+            <p class="print">This is the blog section.</p>
         </section>
         <section class="print" id="contact">
             <h2 class="print">Contact</h2>

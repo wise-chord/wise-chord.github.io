@@ -44,11 +44,15 @@ function updateTheme() {
     const currentTheme = localStorage.getItem('theme');
 
     // query every elements with class 'print'
-    document.querySelectorAll(".print").forEach(element => {
+    document.querySelectorAll(".print").forEach(element => {        // replace icon src
+        if (element.classList.contains("icon")) {
+            element.src = "img/" + currentTheme + "/" + element.id + ".svg";
+        }
         // Remove both classes
         element.classList.remove("light", "dark");
         // Add the current theme
         element.classList.add(currentTheme);
+
     });
 
 }
