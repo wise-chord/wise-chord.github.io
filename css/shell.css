@@ -76,7 +76,7 @@
     /* set size */
     top: 0%;
     left: 0%;
-    width: 16%;
+    width: 100%;
     height: 100%;
     padding: 3%;
     display: flex;
@@ -87,9 +87,7 @@
     overflow: hidden;
     justify-content: space-around;
 }
-.shell:hover {
-    width: 32%;
-}
+
 
 .avatar {
     border-radius: 50%;

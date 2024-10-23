@@ -102,6 +102,9 @@
     /* set size */
     top: 0%;
     left: 0%;
-    width: 100%;
+    width: 16%;
     height: 100%;
+}
+#shell:hover {
+    width: 32%;
 }
