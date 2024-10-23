@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -19,16 +19,6 @@
     </style>
     <div class="shell animation print">
 
-        <style>
-            .avatar {
-                border-radius: 50%;
-                width: 10vw;
-                height: 10vw;
-                border-style: solid;
-                border-width: 0.8vw;
-                border-color: var(--md-sys-color-inverse-primary);
-            }
-        </style>
         <div class="animation wrap">
             <img src="img/avatar.svg" alt="Avatar" class="avatar animation print" />
         </div>
@@ -41,7 +31,11 @@
         <div class="menu animation wrap">
 
             <div class="search-bar animation">
-                <img id="searchIcon" alt="SearchIcon" class="icon animation print" src="img/searchIcon.svg" />
+                <svg id="searchIcon" viewBox="0 0 64 64" width="64" stroke-linecap="round" stroke-linejoin="round" height="64"
+                    stroke-width="4" class="svg icon animation print">
+                    <circle cx="24" cy="24" r="16" fill="none" />
+                    <line x1="36" y1="36" x2="54" y2="54" />
+                </svg>
                 <!-- placeholder should implemented using i18n -->
                 <input type="text" class="global-search animation" placeholder="search...">
             </div>

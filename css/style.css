@@ -96,31 +96,12 @@
     margin-top: 3%;
 }
 
-
-
-
-/* navigation bar */
-.navbar{
-    background-color: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface-variant);
-    padding: 1rem;
-}
-
-.navbar ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-.navbar li {
-    margin: 0;
-}
-
-.navbar a {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-}
-
-.navbar a:hover {
-    color: #ffffff;
+#shell {
+    /* set shell to be fixed relative to the browser window */
+    position: fixed;
+    /* set size */
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
 }

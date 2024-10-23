@@ -44,10 +44,7 @@ function updateTheme() {
     const currentTheme = localStorage.getItem('theme');
 
     // query every elements with class 'print'
-    document.querySelectorAll(".print").forEach(element => {        // replace icon src
-        if (element.classList.contains("icon")) {
-            element.src = "img/" + currentTheme + "/" + element.id + ".svg";
-        }
+    document.querySelectorAll(".print").forEach(element => {
         // Remove both classes
         element.classList.remove("light", "dark");
         // Add the current theme
