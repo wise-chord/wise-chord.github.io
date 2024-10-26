@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        /* 内容区域样式 */
+        .content {
+            width: 100%;
+            height: 100%;
+            padding: 3rem;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+    </style>
+    
+    <meta charset="UTF-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function loadMarkdown(file) {
+            try {
+                const response = await fetch(file);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const markdown = await response.text();
+                const htmlContent = marked.parse(markdown);
+                document.getElementById('markdown-container').innerHTML = htmlContent;
+            } catch (error) {
+                console.error('Error loading markdown file:', error);
+                document.getElementById('markdown-container').innerHTML = "<p>Can not find file.</p>";
+            }
+        }
+        // loadMarkdown('mind/0/Feasibility_Study.md');
+        loadMarkdown("mind/0/Feasibility_Study.md");
+    </script>
+
+</head>
+
+<body>
+
+    <div class="content">
+        <div id="markdown-container"></div>
+    </div>
+
+</body>
+
+</html>
