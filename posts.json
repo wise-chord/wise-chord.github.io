@@ -1,6 +1,6 @@
 [
-  "posts/getting-started.md",
-  "posts/hello-world.md",
-  "posts/material-design.md",
-  "posts/nazu.md"
+  "./posts/getting-started.md",
+  "./posts/hello-world.md",
+  "./posts/material-design.md",
+  "./posts/nazu.md"
 ]
