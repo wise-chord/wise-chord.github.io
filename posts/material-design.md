@@ -1,4 +1,5 @@
 ---
+layout: default
 title: What is Material Design?
 date: 2026-06-27
 tags: [test, design, material, ui]

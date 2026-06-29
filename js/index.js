@@ -40,7 +40,13 @@ async function loadPosts() {
     var res = await fetch('posts.json');
     var files = await res.json();
     var results = await Promise.all(
-      files.map(function(f) { return fetch(f).then(function(r) { return r.text(); }).then(parsePost); })
+      files.map(function(f) {
+        return fetch(f).then(function(r) { return r.text(); }).then(function(text) {
+          var post = parsePost(text);
+          if (post) post.filename = f;
+          return post;
+        });
+      })
     );
     posts = results.filter(function(p) { return p !== null; }).sort(function(a, b) {
       return new Date(b.date) - new Date(a.date);
@@ -98,7 +104,6 @@ function renderPostList() {
   });
 
   container.innerHTML = sorted.map(function(post) {
-    var origIndex = posts.indexOf(post);
     var excerpt = post.content
       .replace(/^#+\s+/gm, '')
       .replace(/[*_`~]/g, '')
@@ -108,8 +113,10 @@ function renderPostList() {
 
     var trimmed = excerpt.length > 120 ? excerpt.slice(0, 120) + '...' : excerpt;
     var badge = post.lang !== currentLang ? '<span class="lang-badge">' + langLabel(post.lang) + '</span>' : '';
+    var postUrl = '/' + post.filename.replace(/\.md$/, '.html');
 
-    return '<article class="post-card" onclick="openPost(' + origIndex + ')">' +
+    return '<article class="post-card">' +
+      '<a href="' + postUrl + '" style="text-decoration:none;color:inherit;display:block">' +
       '<div class="post-meta">' +
       '<span class="post-date">' + post.date + '</span>' +
       badge +
@@ -118,44 +125,25 @@ function renderPostList() {
       '<h3 class="post-title">' + post.title + '</h3>' +
       '<p class="post-excerpt">' + (trimmed || '...') + '</p>' +
       '<span class="text-btn">' + i18next.t('readMore') + '</span>' +
+      '</a>' +
       '</article>';
   }).join('\n');
 }
 
-function openPost(index) {
-  var post = posts[index];
-  if (!post) return;
-
-  var container = document.getElementById('postContent');
-  container.innerHTML =
-    '<h2>' + post.title + '</h2>' +
-    '<div class="post-meta">' +
-    '<span class="post-date">' + post.date + '</span>' +
-    '<div class="post-tags">' + post.tags.map(function(t) { return '<span class="chip">' + t + '</span>'; }).join('') + '</div>' +
-    '</div>' +
-    '<div class="post-body">' + marked.parse(post.content) + '</div>';
-
-  showPage('post');
-}
-
-function closePost() {
-  showPage('blog');
+function setActiveNav(page) {
+  document.querySelectorAll('.drawer-item').forEach(function(i) { i.classList.remove('active'); });
+  document.querySelectorAll('.bottom-nav-item').forEach(function(i) { i.classList.remove('active'); });
+  var drawerItem = document.querySelector('.drawer-item[data-page="' + page + '"]');
+  if (drawerItem) drawerItem.classList.add('active');
+  var navItem = document.querySelector('.bottom-nav-item[data-page="' + page + '"]');
+  if (navItem) navItem.classList.add('active');
 }
 
 function showPage(page) {
   document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
   var target = document.getElementById('page-' + page);
   if (target) target.classList.add('active');
-
-  document.querySelectorAll('.drawer-item').forEach(function(i) { i.classList.remove('active'); });
-  document.querySelectorAll('.bottom-nav-item').forEach(function(i) { i.classList.remove('active'); });
-
-  var drawerItem = document.querySelector('.drawer-item[data-page="' + page + '"]');
-  if (drawerItem) drawerItem.classList.add('active');
-
-  var navItem = document.querySelector('.bottom-nav-item[data-page="' + page + '"]');
-  if (navItem) navItem.classList.add('active');
-
+  setActiveNav(page);
   closeDrawer();
   window.scrollTo({ top: 0, behavior: 'smooth' });
   window.location.hash = page;
@@ -191,18 +179,32 @@ function toggleDrawer() {
 
 document.addEventListener('DOMContentLoaded', function() {
   applyTheme(getPreferredTheme());
-  loadPosts();
+  if (document.getElementById('postList')) {
+    loadPosts();
+  }
 
   document.getElementById('menuBtn').addEventListener('click', toggleDrawer);
   document.getElementById('overlay').addEventListener('click', closeDrawer);
   document.getElementById('themeBtn').addEventListener('click', toggleTheme);
 
   document.querySelectorAll('.drawer-item').forEach(function(item) {
-    item.addEventListener('click', function() { showPage(this.dataset.page); });
+    item.addEventListener('click', function(e) {
+      var target = document.getElementById('page-' + this.dataset.page);
+      if (target) {
+        e.preventDefault();
+        showPage(this.dataset.page);
+      }
+    });
   });
 
   document.querySelectorAll('.bottom-nav-item').forEach(function(item) {
-    item.addEventListener('click', function() { showPage(this.dataset.page); });
+    item.addEventListener('click', function(e) {
+      var target = document.getElementById('page-' + this.dataset.page);
+      if (target) {
+        e.preventDefault();
+        showPage(this.dataset.page);
+      }
+    });
   });
 
   var langSelect = document.getElementById('langSelect');
@@ -236,8 +238,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.key === 'Escape') closeDrawer();
   });
 
-  var initialPage = window.location.hash.slice(1) || 'home';
+  var initialPage = window.location.hash.slice(1) || '';
+  if (!initialPage && window.location.pathname.indexOf('/posts/') === 0) {
+    initialPage = 'blog';
+  }
+  if (!initialPage) initialPage = 'home';
   if (document.getElementById('page-' + initialPage)) {
     showPage(initialPage);
+  } else {
+    setActiveNav(initialPage);
   }
 });

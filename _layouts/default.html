@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239986E0'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
   <title data-i18n="appTitle">wise-chord's Blog</title>
 </head>
@@ -40,7 +40,7 @@
   <!-- Navigation Drawer -->
   <aside class="drawer" id="drawer">
     <div class="drawer-header">
-      <img src="img/avatar.svg" alt="Avatar" class="drawer-avatar">
+      <img src="/img/avatar.svg" alt="Avatar" class="drawer-avatar">
       <div class="drawer-info">
         <span class="drawer-name">wise-chord</span>
         <span class="drawer-email">wisechord@gmail.com</span>
@@ -71,74 +71,9 @@
 
   <!-- Main Content -->
   <main class="content">
-
-    <!-- Home -->
-    <section class="page active" id="page-home">
-      <div class="hero">
-        <img src="img/avatar.svg" alt="Avatar" class="hero-avatar">
-        <h1 class="hero-title"><span data-i18n="heroGreeting">Hi, I'm</span> <span class="hero-highlight">wise-chord</span></h1>
-        <p class="hero-subtitle" data-i18n="heroSubtitle">Welcome to my digital garden. I write about code, design, and the things I build.</p>
-        <div class="hero-actions">
-          <button class="text-btn" onclick="showPage('blog')"><span data-i18n="readBlog">Read Blog</span></button>
-          <button class="text-btn" onclick="showPage('about')"><span data-i18n="aboutMe">About Me</span></button>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="page" id="page-about">
-      <div class="section-header">
-        <h2 data-i18n="about">About</h2>
-      </div>
-      <div class="card about-card">
-        <div class="about-header">
-          <img src="img/avatar.svg" alt="Avatar" class="about-avatar">
-          <div>
-            <h3>wise-chord</h3>
-            <p class="about-tagline" data-i18n="aboutTagline"></p>
-          </div>
-        </div>
-        <p class="about-bio" data-i18n="aboutBio"></p>
-        <div class="about-skills">
-          <span class="chip">Rust</span>
-          <span class="chip">TypeScript</span>
-          <span class="chip">LLVM</span>
-          <span class="chip">Linguistics</span>
-        </div>
-        <div class="about-links">
-          <a href="https://github.com/wise-chord" class="text-btn" target="_blank">GitHub</a>
-          <a href="mailto:wisechord@gmail.com" class="text-btn" data-i18n="email">Email</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Blog -->
-    <section class="page" id="page-blog">
-      <div class="section-header">
-        <h2 data-i18n="blog">Blog</h2>
-      </div>
-      <div class="post-grid" id="postList">
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="page" id="page-contact">
-      <div class="section-header">
-        <h2 data-i18n="contact">Contact</h2>
-      </div>
-      <div class="card contact-card">
-        <p class="contact-intro" data-i18n="contactIntro">Feel free to reach out! I'm always open to discussions and collaborations.</p>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24" class="contact-icon"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          <a href="mailto:wisechord@gmail.com">wisechord@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <svg viewBox="0 0 24 24" class="contact-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-          <a href="https://github.com/wise-chord" target="_blank">github.com/wise-chord</a>
-        </div>
-      </div>
-    </section>
-
+    <div class="post-body">
+      {{ content }}
+    </div>
   </main>
 
   <!-- Bottom Navigation -->
@@ -161,9 +96,9 @@
     </a>
   </nav>
 
-  <script src="js/i18n/i18next.min.js"></script>
-  <script src="js/i18n/i18nextXHRBackend.min.js"></script>
-  <script src="js/modules/language.js"></script>
-  <script src="js/index.js"></script>
+  <script src="/js/i18n/i18next.min.js"></script>
+  <script src="/js/i18n/i18nextXHRBackend.min.js"></script>
+  <script src="/js/modules/language.js"></script>
+  <script src="/js/index.js"></script>
 </body>
 </html>

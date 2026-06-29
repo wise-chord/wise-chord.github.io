@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Hello World
 date: 2026-06-29
 tags: [test, personal, welcome]

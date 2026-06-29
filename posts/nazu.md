@@ -1,7 +1,8 @@
 ---
+layout: default
 title: Overview of Nazu
 date: 2026-06-29
-tags: [linguistics, conlang]
+tags: [linguistics]
 lang: zh_TW
 ---
 

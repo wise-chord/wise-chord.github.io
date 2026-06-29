@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Getting Started with Web Development
 date: 2026-06-28
 tags: [test, web, tutorial, beginner]
