@@ -43,4 +43,9 @@ function updateLanguage() {
     
     });
 
+    var langText = document.querySelector('.lang-select__text');
+    if (langText) {
+        langText.textContent = i18next.language;
+    }
+
 }
