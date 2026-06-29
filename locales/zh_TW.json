@@ -1,5 +1,5 @@
 {
-  "appTitle": "wise-chord 的部落格",
+  "appTitle": "Chord 的部落格",
   "home": "首頁",
   "about": "關於",
   "blog": "部落格",
@@ -17,5 +17,7 @@
   "language": "語言",
   "theme": "主題",
   "lightMode": "亮色模式",
-  "darkMode": "暗色模式"
+  "darkMode": "暗色模式",
+  "searchPosts": "按標題或標籤搜尋文章...",
+  "tableOfContents": "目錄"
 }

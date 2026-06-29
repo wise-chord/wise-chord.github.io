@@ -1,6 +1,34 @@
 [
-  "./posts/getting-started.md",
-  "./posts/hello-world.md",
-  "./posts/material-design.md",
-  "./posts/nazu.md"
+  {
+    "title": "Getting Started with Web Development",
+    "date": "2026-06-28",
+    "tags": ["test", "web", "tutorial", "beginner"],
+    "lang": "en_GB",
+    "slug": "getting-started",
+    "excerpt": "Web development is an exciting field. Here are some basics to get you started on your journey."
+  },
+  {
+    "title": "Hello World",
+    "date": "2026-06-29",
+    "tags": ["test", "personal", "welcome"],
+    "lang": "en_GB",
+    "slug": "hello-world",
+    "excerpt": "Welcome to my blog! This is where I'll share my thoughts on programming, design, and technology."
+  },
+  {
+    "title": "What is Material Design?",
+    "date": "2026-06-27",
+    "tags": ["test", "design", "material", "ui"],
+    "lang": "en_GB",
+    "slug": "material-design",
+    "excerpt": "Material Design is a design system created by Google. It uses grid-based layouts, responsive animations, and depth effects like lighting and shadows to create a clean, intuitive user interface."
+  },
+  {
+    "title": "Overview of Nazu",
+    "date": "2026-06-29",
+    "tags": ["linguistics", "conlang"],
+    "lang": "zh_TW",
+    "slug": "nazu",
+    "excerpt": "Nazu 是一門結合了邏輯語（Loglang）與函數式編程語義的人工語言。"
+  }
 ]

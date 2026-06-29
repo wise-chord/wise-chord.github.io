@@ -1,5 +1,5 @@
 {
-  "appTitle": "wise-chord's Blog",
+  "appTitle": "Chord's Blog",
   "home": "Home",
   "about": "About",
   "blog": "Blog",
@@ -17,5 +17,7 @@
   "language": "Language",
   "theme": "Theme",
   "lightMode": "Light",
-  "darkMode": "Dark"
+  "darkMode": "Dark",
+  "searchPosts": "Search posts by title or tag...",
+  "tableOfContents": "Table of Contents"
 }

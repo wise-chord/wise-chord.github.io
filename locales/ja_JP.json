@@ -1,5 +1,5 @@
 {
-  "appTitle": "wise-chord のブログ",
+  "appTitle": "Chord のブログ",
   "home": "ホーム",
   "about": "アバウト",
   "blog": "ブログ",
@@ -17,5 +17,7 @@
   "language": "言語",
   "theme": "テーマ",
   "lightMode": "明るい",
-  "darkMode": "暗い"
+  "darkMode": "暗い",
+  "searchPosts": "タイトルまたはタグで記事を検索...",
+  "tableOfContents": "目次"
 }
