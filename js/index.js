@@ -119,8 +119,6 @@ function generateTOC() {
   var list = document.createElement('ul');
   list.className = 'toc-list';
 
-  var sidebar, overlay;
-
   headings.forEach(function(h) {
     var level = parseInt(h.tagName.charAt(1), 10);
     var id = h.getAttribute('id');
@@ -142,54 +140,60 @@ function generateTOC() {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         history.pushState(null, '', '#' + id);
       }
-      sidebar.classList.remove('open');
-      if (overlay) overlay.classList.remove('show');
+      panel.classList.remove('open');
+      overlay.classList.remove('show');
     });
 
     item.appendChild(link);
     list.appendChild(item);
   });
 
-  // build sidebar
-  sidebar = document.createElement('aside');
-  sidebar.className = 'toc-sidebar';
-  sidebar.setAttribute('aria-label', 'Table of contents');
-
-  var toggle = document.createElement('button');
-  toggle.className = 'toc-toggle';
-  toggle.setAttribute('aria-label', 'Toggle table of contents');
-  toggle.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>';
-
-  var closeBtn = document.createElement('button');
-  closeBtn.className = 'toc-close';
-  closeBtn.setAttribute('aria-label', 'Close table of contents');
-  closeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
-
-  var panel = document.createElement('div');
+  // panel (placed inside post-layout for desktop, fixed on mobile)
+  var panel = document.createElement('aside');
   panel.className = 'toc-panel';
+  panel.setAttribute('aria-label', 'Table of contents');
+
+  var headerRow = document.createElement('div');
+  headerRow.className = 'toc-header';
 
   var title = document.createElement('div');
   title.className = 'toc-title';
   title.setAttribute('data-i18n', 'tableOfContents');
   title.textContent = 'Table of Contents';
 
-  panel.appendChild(closeBtn);
-  panel.appendChild(title);
+  var closeBtn = document.createElement('button');
+  closeBtn.className = 'toc-close';
+  closeBtn.setAttribute('aria-label', 'Close table of contents');
+  closeBtn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>';
+
+  headerRow.appendChild(title);
+  headerRow.appendChild(closeBtn);
+  panel.appendChild(headerRow);
   panel.appendChild(list);
-  sidebar.appendChild(toggle);
-  sidebar.appendChild(panel);
-  postLayout.appendChild(sidebar);
+  postLayout.appendChild(panel);
 
-  // overlay for mobile
-  if (window.innerWidth < 1024) {
-    overlay = document.createElement('div');
-    overlay.className = 'toc-overlay';
-    document.body.appendChild(overlay);
-  }
+  // toggle button (fixed on right edge)
+  var toggleWrapper = document.createElement('div');
+  toggleWrapper.className = 'toc-toggle-wrapper';
 
+  var toggle = document.createElement('button');
+  toggle.className = 'toc-toggle';
+  toggle.setAttribute('aria-label', 'Toggle table of contents');
+  toggle.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>';
+
+  toggleWrapper.appendChild(toggle);
+
+  // overlay
+  var overlay = document.createElement('div');
+  overlay.className = 'toc-overlay';
+
+  document.body.appendChild(toggleWrapper);
+  document.body.appendChild(overlay);
+
+  // toggle logic
   function toggleTOC() {
-    sidebar.classList.toggle('open');
-    if (overlay) overlay.classList.toggle('show');
+    panel.classList.toggle('open');
+    overlay.classList.toggle('show');
   }
 
   toggle.addEventListener('click', function(e) {
@@ -201,14 +205,12 @@ function generateTOC() {
     toggleTOC();
   });
 
-  if (overlay) {
-    overlay.addEventListener('click', function() {
-      toggleTOC();
-    });
-  }
+  overlay.addEventListener('click', function() {
+    toggleTOC();
+  });
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) {
       toggleTOC();
     }
   });
